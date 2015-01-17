@@ -43,6 +43,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location needed.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location needed.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

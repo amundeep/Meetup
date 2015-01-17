@@ -16,6 +16,13 @@
 		8A1F35591A6A0A5100D4C51D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F35571A6A0A5100D4C51D /* LaunchScreen.xib */; };
 		8A1F35651A6A0A5100D4C51D /* MeetupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F35641A6A0A5100D4C51D /* MeetupTests.m */; };
 		8A1F356F1A6A0B9000D4C51D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */; };
+		8A1F35711A6A22A600D4C51D /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35701A6A22A600D4C51D /* Firebase.framework */; };
+		8A1F35731A6A22C200D4C51D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35721A6A22C200D4C51D /* libicucore.dylib */; };
+		8A1F35751A6A22D100D4C51D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35741A6A22D100D4C51D /* libc++.dylib */; };
+		8A1F35771A6A22E600D4C51D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35761A6A22E600D4C51D /* CFNetwork.framework */; };
+		8A1F35791A6A22EF00D4C51D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35781A6A22EF00D4C51D /* Security.framework */; };
+		8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */; };
+		8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		8A1F35631A6A0A5100D4C51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A1F35641A6A0A5100D4C51D /* MeetupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetupTests.m; sourceTree = "<group>"; };
 		8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		8A1F35701A6A22A600D4C51D /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		8A1F35721A6A22C200D4C51D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		8A1F35741A6A22D100D4C51D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		8A1F35761A6A22E600D4C51D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8A1F35781A6A22EF00D4C51D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +65,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */,
+				8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */,
+				8A1F35791A6A22EF00D4C51D /* Security.framework in Frameworks */,
+				8A1F35771A6A22E600D4C51D /* CFNetwork.framework in Frameworks */,
+				8A1F35751A6A22D100D4C51D /* libc++.dylib in Frameworks */,
+				8A1F35731A6A22C200D4C51D /* libicucore.dylib in Frameworks */,
 				8A1F356F1A6A0B9000D4C51D /* FacebookSDK.framework in Frameworks */,
+				8A1F35711A6A22A600D4C51D /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +89,13 @@
 		8A1F35391A6A0A5100D4C51D = {
 			isa = PBXGroup;
 			children = (
+				8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */,
+				8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */,
+				8A1F35781A6A22EF00D4C51D /* Security.framework */,
+				8A1F35761A6A22E600D4C51D /* CFNetwork.framework */,
+				8A1F35741A6A22D100D4C51D /* libc++.dylib */,
+				8A1F35721A6A22C200D4C51D /* libicucore.dylib */,
+				8A1F35701A6A22A600D4C51D /* Firebase.framework */,
 				8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */,
 				8A1F35441A6A0A5100D4C51D /* Meetup */,
 				8A1F35611A6A0A5100D4C51D /* MeetupTests */,
@@ -357,6 +385,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ASingh/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -375,6 +404,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ASingh/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

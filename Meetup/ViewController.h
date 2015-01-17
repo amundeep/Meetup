@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (nonatomic) BOOL *pickedFriends;
 @property (nonatomic, retain, readonly) NSArray *friendSelection;
+@property  (nonatomic, retain) NSString *facebookId;
+@property (nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) CLLocation *updatedLocation;
+
 
 @end
 

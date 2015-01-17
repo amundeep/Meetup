@@ -7,10 +7,15 @@
 //
 
 #import "ViewController.h"
+#import <Firebase/Firebase.h>
 
-@interface ViewController () <FBFriendPickerDelegate>{
+@interface ViewController () <FBFriendPickerDelegate, FBLoginViewDelegate> {
     
     BOOL *pickedFriends;
+    NSString *facebookId;
+    CLLocationManager *locationManager;
+    NSString *name;
+    CLLocation *updatedLocation;
     
 }
 
@@ -20,6 +25,10 @@
 @implementation ViewController
 @synthesize pickedFriends;
 @synthesize friendSelection;
+@synthesize facebookId;
+@synthesize locationManager;
+@synthesize name;
+@synthesize updatedLocation;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +37,11 @@
     
     FBLoginView *loginView =
     [[FBLoginView alloc] initWithReadPermissions:
+
      @[@"public_profile", @"email", @"user_friends"]];
+    
+    loginView.delegate = self;
+    
     // Align the button in the center horizontally
     loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 5);
     [self.view addSubview:loginView];
@@ -44,8 +57,57 @@
         }
     }];
     
+    locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    [locationManager requestAlwaysAuthorization];
+    
+    
+    NSLog(@"%@", [self deviceLocation]);
+    
+    
+    // Write data to Firebase
+    
     
 }
+
+- (NSString *)deviceLocation {
+    return [NSString stringWithFormat:@"%f,%f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %f,%f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    updatedLocation = newLocation;
+    
+//    if (currentLocation != nil) {
+//        longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+//        latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+//    }
+    
+    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
+    Firebase *childRef = [myRootRef childByAppendingPath:name];
+    //    [myRootRef setValue:user.name];
+    CLLocationDegrees lat = updatedLocation.coordinate.latitude;
+    CLLocationDegrees lng = updatedLocation.coordinate.longitude;
+    NSString *test = [NSString stringWithFormat:@"%f,%f", lat, lng];
+    [childRef setValue:test];
+}
+
+//user data fetched
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+//    self.profilePictureView.profileID = user.id;
+//    self.nameLabel.text = user.name;
+    
+    name = user.name;
+    
+    [locationManager startUpdatingLocation];
+    
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -68,11 +130,11 @@
         // Show the picker modally
         [friendPickerController presentModallyFromViewController:self animated:YES handler:nil];
         pickedFriends = true;
-        
-        NSLog(@"selected: %i friends", friendSelection.count);
-        for (NSDictionary<FBGraphUser>* friend in friendSelection) {
-            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-        }
+//        
+//        NSLog(@"selected: %i friends", friendSelection.count);
+//        for (NSDictionary<FBGraphUser>* friend in friendSelection) {
+//            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//        }
     }
     
 
