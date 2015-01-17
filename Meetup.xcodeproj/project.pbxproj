@@ -15,6 +15,7 @@
 		8A1F35561A6A0A5100D4C51D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F35551A6A0A5100D4C51D /* Images.xcassets */; };
 		8A1F35591A6A0A5100D4C51D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F35571A6A0A5100D4C51D /* LaunchScreen.xib */; };
 		8A1F35651A6A0A5100D4C51D /* MeetupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F35641A6A0A5100D4C51D /* MeetupTests.m */; };
+		8A1F356F1A6A0B9000D4C51D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8A1F355E1A6A0A5100D4C51D /* MeetupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1F35631A6A0A5100D4C51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A1F35641A6A0A5100D4C51D /* MeetupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetupTests.m; sourceTree = "<group>"; };
+		8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1F356F1A6A0B9000D4C51D /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +68,7 @@
 		8A1F35391A6A0A5100D4C51D = {
 			isa = PBXGroup;
 			children = (
+				8A1F356E1A6A0B9000D4C51D /* FacebookSDK.framework */,
 				8A1F35441A6A0A5100D4C51D /* Meetup */,
 				8A1F35611A6A0A5100D4C51D /* MeetupTests */,
 				8A1F35431A6A0A5100D4C51D /* Products */,
@@ -171,6 +175,7 @@
 				TargetAttributes = {
 					8A1F35411A6A0A5100D4C51D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Y3C4A323WT;
 					};
 					8A1F355D1A6A0A5100D4C51D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -347,9 +352,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ASingh/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -357,9 +370,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ASingh/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
