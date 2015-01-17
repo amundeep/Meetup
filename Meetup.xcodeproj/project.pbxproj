@@ -23,6 +23,8 @@
 		8A1F35791A6A22EF00D4C51D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35781A6A22EF00D4C51D /* Security.framework */; };
 		8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */; };
 		8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */; };
+		8A3A45651A6AC53300F278D1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A45641A6AC53300F278D1 /* libxml2.dylib */; };
+		8A3A45671A6ACAFF00F278D1 /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A45661A6ACAFF00F278D1 /* city.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		8A1F35781A6A22EF00D4C51D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8A3A45631A6AC51500F278D1 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
+		8A3A45641A6AC53300F278D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8A3A45661A6ACAFF00F278D1 /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3A45651A6AC53300F278D1 /* libxml2.dylib in Frameworks */,
 				8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */,
 				8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */,
 				8A1F35791A6A22EF00D4C51D /* Security.framework in Frameworks */,
@@ -89,6 +95,7 @@
 		8A1F35391A6A0A5100D4C51D = {
 			isa = PBXGroup;
 			children = (
+				8A3A45641A6AC53300F278D1 /* libxml2.dylib */,
 				8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */,
 				8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */,
 				8A1F35781A6A22EF00D4C51D /* Security.framework */,
@@ -100,6 +107,7 @@
 				8A1F35441A6A0A5100D4C51D /* Meetup */,
 				8A1F35611A6A0A5100D4C51D /* MeetupTests */,
 				8A1F35431A6A0A5100D4C51D /* Products */,
+				8A3A45661A6ACAFF00F278D1 /* city.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +123,7 @@
 		8A1F35441A6A0A5100D4C51D /* Meetup */ = {
 			isa = PBXGroup;
 			children = (
+				8A3A45631A6AC51500F278D1 /* OAuthConsumer.h */,
 				8A1F35491A6A0A5100D4C51D /* AppDelegate.h */,
 				8A1F354A1A6A0A5100D4C51D /* AppDelegate.m */,
 				8A1F354F1A6A0A5100D4C51D /* ViewController.h */,
@@ -240,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3A45671A6ACAFF00F278D1 /* city.jpg in Resources */,
 				8A1F35541A6A0A5100D4C51D /* Main.storyboard in Resources */,
 				8A1F35591A6A0A5100D4C51D /* LaunchScreen.xib in Resources */,
 				8A1F35561A6A0A5100D4C51D /* Images.xcassets in Resources */,
@@ -392,6 +402,11 @@
 					/Users/ASingh/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$SDKROOT/usr/include/libxml2/**",
+				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -410,6 +425,11 @@
 					"$(inherited)",
 					/Users/ASingh/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$SDKROOT/usr/include/libxml2/**",
 				);
 				INFOPLIST_FILE = Meetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

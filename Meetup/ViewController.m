@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Firebase/Firebase.h>
 #import "AppDelegate.h">
+//#include "<sys/types.h">
 
 NSString *invitations;
 
@@ -40,14 +41,13 @@ NSString *invitations;
     pickedFriends = false;
     
     FBLoginView *loginView =
-    [[FBLoginView alloc] initWithReadPermissions:
-
-     @[@"public_profile", @"email", @"user_friends"]];
+    [[FBLoginView alloc] initWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]];
     
     loginView.delegate = self;
     
     // Align the button in the center horizontally
-    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 5);
+    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), (self.view.center.y - (loginView.frame.size.height / 2)));
+    
     [self.view addSubview:loginView];
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
@@ -73,6 +73,7 @@ NSString *invitations;
 
     
 }
+
 
 - (NSString *)deviceLocation {
     return [NSString stringWithFormat:@"%f,%f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude];
@@ -111,7 +112,7 @@ NSString *invitations;
                             user:(id<FBGraphUser>)user {
 //    self.profilePictureView.profileID = user.id;
 //    self.nameLabel.text = user.name;
-    
+    NSLog(@"OH HELLO THERE");
     name = user.name;
     appDelegate.superName = user.name;
 //    super.super.super.name = user.name;
@@ -247,6 +248,31 @@ NSString *invitations;
 //    [[myRootRef childByAppendingPath:@"lmao"] setValue:name];
     
     [[[myRootRef childByAppendingPath:@"lmao"] childByAutoId] setValue:name];
+    
+//    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:@"mykey"
+//                                                    secret:@"mysecret"];
+//    
+//    NSURL *url = [NSURL URLWithString:@"https://example.com/user/1/flights/"];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
+//                                                                   consumer:consumer
+//                                                                      token:accessToken
+//                                                                      realm:nil
+//                                                          signatureProvider:[[OAPlaintextSignatureProvider alloc] init]];
+//    
+//    OARequestParameter *nameParam = [[OARequestParameter alloc] initWithName:@"title"
+//                                                                       value:@"My Page"];
+//    OARequestParameter *descParam = [[OARequestParameter alloc] initWithName:@"description"
+//                                                                       value:@"My Page Holds Text"];
+//    NSArray *params = [NSArray arrayWithObjects:nameParam, descParam, nil];
+//    [request setParameters:params];
+//    
+//    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+//    [fetcher fetchDataWithRequest:request
+//                         delegate:self
+//                didFinishSelector:@selector(apiTicket:didFinishWithData:)
+//                  didFailSelector:@selector(apiTicket:didFailWithError:)];
+//    
+//    
     
     
     
