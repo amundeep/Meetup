@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic) BOOL *pickedFriends;
+@property (nonatomic, retain, readonly) NSArray *friendSelection;
 
 @end
 
