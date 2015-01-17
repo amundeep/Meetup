@@ -491,7 +491,13 @@ Firebase *myRootRef;
     
     if ([identifier isEqualToString:@"ACCEPT_IDENTIFIER"]) {
         
-        [[myRootRef childByAutoId] setValue:superName];
+        Firebase *subRef = [myRootRef childByAutoId];
+        
+        [[subRef childByAppendingPath:@"name"] setValue:superName];
+        
+        NSString *loc = [[NSUserDefaults standardUserDefaults] objectForKey:@"Location"];
+        
+        [[subRef childByAppendingPath:@"loc"] setValue:loc];
         
         NSLog(@"%@",superName);
 //        [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {

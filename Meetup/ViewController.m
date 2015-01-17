@@ -95,6 +95,8 @@ NSString *invitations;
     CLLocationDegrees lng = updatedLocation.coordinate.longitude;
     NSString *test = [NSString stringWithFormat:@"%f,%f", lat, lng];
     [locRef setValue:test];
+    [[NSUserDefaults standardUserDefaults] setObject:test forKey:@"Location"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(int)name
