@@ -87,12 +87,12 @@
 //    }
     
     Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
-    Firebase *childRef = [myRootRef childByAppendingPath:name];
+    Firebase *locRef = [[myRootRef childByAppendingPath:name] childByAppendingPath:@"location"];
     //    [myRootRef setValue:user.name];
     CLLocationDegrees lat = updatedLocation.coordinate.latitude;
     CLLocationDegrees lng = updatedLocation.coordinate.longitude;
     NSString *test = [NSString stringWithFormat:@"%f,%f", lat, lng];
-    [childRef setValue:test];
+    [locRef setValue:test];
 }
 
 //user data fetched
@@ -103,6 +103,15 @@
 //    self.nameLabel.text = user.name;
     
     name = user.name;
+    
+    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
+    Firebase *locRef = [[myRootRef childByAppendingPath:name] childByAppendingPath:@"location"];
+    
+    [[myRootRef childByAppendingPath:name] observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(![snapshot hasChild:@"pending invitations"]){
+            [[[myRootRef childByAppendingPath:name] childByAppendingPath:@"pending invitations"] setValue:@""];
+        }
+    }];
     
     [locationManager startUpdatingLocation];
     
