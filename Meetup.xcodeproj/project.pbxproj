@@ -204,6 +204,11 @@
 					8A1F35411A6A0A5100D4C51D = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Y3C4A323WT;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8A1F355D1A6A0A5100D4C51D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -467,6 +472,7 @@
 				8A1F356A1A6A0A5100D4C51D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A1F356B1A6A0A5100D4C51D /* Build configuration list for PBXNativeTarget "MeetupTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +481,7 @@
 				8A1F356D1A6A0A5100D4C51D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

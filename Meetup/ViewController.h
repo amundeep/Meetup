@@ -18,6 +18,8 @@
 @property (nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) CLLocation *updatedLocation;
+-(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+
 
 
 @end
