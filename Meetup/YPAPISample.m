@@ -92,7 +92,14 @@ static NSString * const kSearchLimit       = @"3";
 //    static NSString * const kBusinessPath      = @"/v2/business/";
 //    static NSString * const kSearchLimit       = @"3";
     
-    return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&name=food&key=AIzaSyBoQPjuTw_0t_wHN3-yLQ68bZiwxgeiK08"]];
+    NSString *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"TotalLat"];
+    NSString *lng = [[NSUserDefaults standardUserDefaults] objectForKey:@"TotalLong"];
+    
+    NSString *query = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&key=AIzaSyBoQPjuTw_0t_wHN3-yLQ68bZiwxgeiK08", lat,lng];
+    
+    NSLog(@"query: %@", query);
+    
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:query]];
 }
 
 /**
@@ -103,9 +110,13 @@ static NSString * const kSearchLimit       = @"3";
  @return The NSURLRequest needed to query the business info
  */
 - (NSURLRequest *)_businessInfoRequestForID:(NSString *)businessID {
-
+    NSString *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"TotalLat"];
+    NSString *lng = [[NSUserDefaults standardUserDefaults] objectForKey:@"TotalLong"];
+    
+    NSString *query = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&key=AIzaSyBoQPjuTw_0t_wHN3-yLQ68bZiwxgeiK08", lat,lng];
+    
   NSString *businessPath = [NSString stringWithFormat:@"%@%@", kBusinessPath, businessID];
-  return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&name=food&key=AIzaSyBoQPjuTw_0t_wHN3-yLQ68bZiwxgeiK08"]];
+  return [NSURLRequest requestWithURL:[NSURL URLWithString:query]];
 }
 
 @end

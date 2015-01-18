@@ -11,5 +11,6 @@
 @interface NewEventController : UITableViewController
 
 
+@property (strong, nonatomic) IBOutlet UITableView *mainTable;
 
 @end

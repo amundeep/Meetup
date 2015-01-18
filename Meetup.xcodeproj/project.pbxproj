@@ -46,6 +46,8 @@
 		8AC49D781A6B04250079E243 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D621A6B04250079E243 /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AC49D791A6B04250079E243 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D661A6B04250079E243 /* YPAPISample.m */; };
 		8AC49D7C1A6B192B0079E243 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D7B1A6B192B0079E243 /* PlacesViewController.m */; };
+		8AC49D811A6B53370079E243 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC49D801A6B53370079E243 /* MapKit.framework */; };
+		8AC49D831A6B608C0079E243 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC49D821A6B608C0079E243 /* NotificationCenter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		8AC49D661A6B04250079E243 /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
 		8AC49D7A1A6B192B0079E243 /* PlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
 		8AC49D7B1A6B192B0079E243 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		8AC49D801A6B53370079E243 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8AC49D821A6B608C0079E243 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC49D831A6B608C0079E243 /* NotificationCenter.framework in Frameworks */,
+				8AC49D811A6B53370079E243 /* MapKit.framework in Frameworks */,
 				8A3A45651A6AC53300F278D1 /* libxml2.dylib in Frameworks */,
 				8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */,
 				8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */,
@@ -160,6 +166,8 @@
 		8A1F35391A6A0A5100D4C51D = {
 			isa = PBXGroup;
 			children = (
+				8AC49D821A6B608C0079E243 /* NotificationCenter.framework */,
+				8AC49D801A6B53370079E243 /* MapKit.framework */,
 				8A3A45641A6AC53300F278D1 /* libxml2.dylib */,
 				8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */,
 				8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */,

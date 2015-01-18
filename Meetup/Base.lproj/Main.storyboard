@@ -31,6 +31,13 @@
                                     <rect key="frame" x="137" y="98" width="100" height="21"/>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-GQ-kjn" customClass="FBLoginView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="498" width="295" height="78"/>
+                                </variation>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6t-aI-Zz3">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -39,40 +46,36 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="228" y="625" width="73" height="34"/>
+                                    <rect key="frame" x="151" y="441" width="73" height="34"/>
                                 </variation>
                                 <connections>
                                     <segue destination="s2g-zU-S6V" kind="show" id="7on-pN-IVa"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-GQ-kjn" customClass="FBLoginView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="40" y="498" width="295" height="78"/>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="1gg-YT-Ui3"/>
                                 <exclude reference="wsq-dR-2GH"/>
-                                <exclude reference="j6t-aI-Zz3"/>
                                 <exclude reference="Dhf-GQ-kjn"/>
+                                <exclude reference="j6t-aI-Zz3"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="1gg-YT-Ui3"/>
                                 <include reference="wsq-dR-2GH"/>
-                                <include reference="j6t-aI-Zz3"/>
                                 <include reference="Dhf-GQ-kjn"/>
+                                <include reference="j6t-aI-Zz3"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="loginView" destination="Dhf-GQ-kjn" id="Oza-2o-oho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +85,7 @@
         <scene sceneID="1jJ-5A-xHv">
             <objects>
                 <tableViewController id="qrA-Om-wN1" customClass="NewEventController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aOq-Yj-rpG" customClass="NewEventControlller">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aOq-Yj-rpG">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -98,7 +101,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mainTable" destination="aOq-Yj-rpG" id="F2E-xe-Xj1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svn-g1-r2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,16 +118,46 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oix-b9-7B0">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="iHG-bt-33l">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YHr-vF-3K7">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                    </variation>
+                                </mapView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="YHr-vF-3K7"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular">
+                                <mask key="subviews">
+                                    <include reference="YHr-vF-3K7"/>
+                                </mask>
+                            </variation>
+                        </view>
                         <connections>
                             <outlet property="dataSource" destination="3tg-ja-kE8" id="sSx-MN-aHB"/>
                             <outlet property="delegate" destination="3tg-ja-kE8" id="jjm-PB-zZ2"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Places Near Your Friends" id="thK-Az-haE">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="m3K-mN-S4f"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="m3K-mN-S4f">
+                            <connections>
+                                <action selector="goBack:" destination="3tg-ja-kE8" id="V3g-Ef-P7m"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="cancelButton" destination="m3K-mN-S4f" id="gge-IE-52b"/>
+                        <outlet property="mapHolderView" destination="iHG-bt-33l" id="flr-cB-Jga"/>
+                        <outlet property="mapView" destination="YHr-vF-3K7" id="cl8-Uj-ZyS"/>
                         <outlet property="placesTable" destination="oix-b9-7B0" id="VPq-LI-JTm"/>
                     </connections>
                 </tableViewController>
@@ -153,6 +190,7 @@
         <scene sceneID="6Ly-e3-xlF">
             <objects>
                 <navigationController id="s2g-zU-S6V" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UkO-dS-NnI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

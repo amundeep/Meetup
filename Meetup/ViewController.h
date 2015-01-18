@@ -20,6 +20,7 @@
 @property (strong, nonatomic) CLLocation *updatedLocation;
 -(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
+@property (strong, nonatomic) IBOutlet FBLoginView *loginView;
 
 
 @end

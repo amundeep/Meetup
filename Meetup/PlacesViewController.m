@@ -16,6 +16,10 @@
 
 @implementation PlacesViewController
 @synthesize myPlaces;
+@synthesize mapHolderView;
+@synthesize mapView;
+@synthesize cancelButton;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +36,60 @@
     
     NSLog(@"%@", myPlaces);
 //    myPlaces = [[NSMutableArray alloc] initWithObjects:@"Test Object 1", @"Test Object 2", nil];
+    
+    
+    
+    CGRect frame = self.mapHolderView.frame;
+    frame.size.height = 250;
+    self.mapHolderView.frame = frame;
+    
+    self.mapView.delegate = self;
+    
+    NSString *loc = [[NSUserDefaults standardUserDefaults] objectForKey:@"Location"];
+    NSMutableArray *pins = [[NSMutableArray alloc] init];
+    
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    
+    NSLog(@"WHATWHATWHATWHAT: %@", businessArray);
+    for(NSDictionary *placesDict in businessArray){
+        
+        float lon = [placesDict[@"geometry"][@"location"][@"lng"] floatValue];
+        float lat = [placesDict[@"geometry"][@"location"][@"lat"] floatValue];
+        NSLog(@"YYYYYYYYYYYYY: %f, %f", lon, lat);
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lat, lon);
+        
+        MKCoordinateRegion region = {coord, span};
+        
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:coord];
+        
+        annotation.title = placesDict[@"name"];
+        NSLog(@"LOLOLOLOLOLOLOL%@", annotation.title);
+        annotation.subtitle = placesDict[@"vicinity"];
+        
+        [pins addObject:annotation];
+    }
+    
+    NSLog(@"PINSSSSSSSSSSS: %@", pins);
+    
+    
+    float lon = [[[loc componentsSeparatedByString:@","] objectAtIndex:1] floatValue];
+    float lat = [[[loc componentsSeparatedByString:@","] objectAtIndex:0] floatValue];
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lat, lon);
+    
+    MKCoordinateRegion region = {coord, span};
+    
+//    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+//    [annotation setCoordinate:coord];
+//    
+//    annotation.title = @"You are here";
+//    annotation.subtitle = @"Current location";
+//    
+//    [pins addObject:annotation];
+    
+    [mapView setRegion:region];
+    [mapView addAnnotations:pins];
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +104,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)goBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -30,6 +30,7 @@
 @end
 
 @implementation NewEventController
+@synthesize mainTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +46,10 @@
 //    placesViewController = [[PlacesViewController alloc] initWithNibName:@"PlacesViewController" bundle:nil];
 //    placesViewController.delegate = self;
 //    navController = [[UINavigationController alloc] initWithRootViewController:placesViewController];
+    
+//    UIEdgeInsets inset = UIEdgeInsetsMake(50, 0, 0, 0);
+//    self.mainTable.contentInset = inset;
+//    self.mainTable.scrollIndicatorInsets = inset;
     
 }
 
@@ -187,6 +192,10 @@
     totalLat /= locNames.count;
     totalLong /= locNames.count;
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%.8f", totalLat] forKey:@"TotalLat"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%.8f", totalLong] forKey:@"TotalLong"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     NSLog(@"11111111111: %f, %f", totalLat, totalLong);
     
     
@@ -222,7 +231,12 @@
     
     UIStoryboard *storyboard = [self storyboard];
     PlacesViewController *placesViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlacesViewController"];
-    UINavigationController *navBar=[[UINavigationController alloc]initWithRootViewController:placesViewController];
+    UINavigationController *navBar = [[UINavigationController alloc]initWithRootViewController:placesViewController];
+    navBar.navigationBar.tintColor = [UIColor whiteColor];
+    navBar.navigationBar.barStyle = UIBarStyleBlack;
+    navBar.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    navBar.navigationBar.barTintColor = [UIColor colorWithRed:0.4 green:0.6 blue:1 alpha:1]; /*#6699ff*/
+    
 //    [self presentViewController:placesViewController animated:NO completion:nil];
     [self.navigationController presentViewController:navBar animated:YES completion:nil];
 //    [navBar release];

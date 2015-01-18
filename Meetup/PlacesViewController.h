@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @protocol PlacesViewControllerDelegate;
 
@@ -18,6 +19,9 @@
 
 @property (nonatomic, assign) id<PlacesViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray *myPlaces;
+@property (strong, nonatomic) IBOutlet UIView *mapHolderView;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @end
 

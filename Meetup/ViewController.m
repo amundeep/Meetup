@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import <Firebase/Firebase.h>
 #import "AppDelegate.h">
-//#include "<sys/types.h">
 
 NSString *invitations;
 
@@ -35,14 +34,14 @@ NSString *invitations;
 @synthesize locationManager;
 @synthesize name;
 @synthesize updatedLocation;
+@synthesize loginView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate = [[UIApplication sharedApplication] delegate];
     pickedFriends = false;
     
-    FBLoginView *loginView =
-    [[FBLoginView alloc] initWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]];
+    [loginView initWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]];
     
     loginView.delegate = self;
     
@@ -70,7 +69,7 @@ NSString *invitations;
     
     
     NSLog(@"%@", [self deviceLocation]);
-    
+//    [friendPickerController loadData];
 
     
 }
@@ -84,11 +83,7 @@ NSString *invitations;
 {
 //    NSLog(@"didUpdateToLocation: %f,%f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
     updatedLocation = newLocation;
-    
-//    if (currentLocation != nil) {
-//        longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-//        latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-//    }
+
     
     Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
     Firebase *locRef = [[myRootRef childByAppendingPath:name] childByAppendingPath:@"location"];
@@ -133,22 +128,7 @@ NSString *invitations;
 //    Firebase *eventRef = [[myRootRef childByAppendingPath:name] childByAppendingPath:@"pending invitations"];
     [[myRootRef childByAppendingPath:name] observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
 //        NSLog(@"lmao %@",snapshot.valueInExportFormat);
-//        
-//        
-//        if ([snapshot.valueInExportFormat rangeOfString:@","].location == NSNotFound) {
-//            NSLog(@"change detected %@",snapshot.valueInExportFormat);
-//        
-//            UILocalNotification *notification = [[UILocalNotification alloc] init];
-//            notification.fireDate = [[NSDate date] dateByAddingTimeInterval:3];
-//            notification.alertBody = @"New event!";
-//            notification.soundName = UILocalNotificationDefaultSoundName;
-//            notification.category =  @"INVITE_CATEGORY";
-//            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-//
-//            
-//        }
-        
-//        NSLog(@"%@", snapshot.description);
+
         
         
         
@@ -157,41 +137,6 @@ NSString *invitations;
     [locationManager startUpdatingLocation];
     
 }
-
-
-//
-//-(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-//    
-//    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
-//    [[myRootRef childByAppendingPath:name] observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
-//        //        NSLog(@"lmao %@",snapshot.valueInExportFormat);
-//        
-//        //        NSString *string = @"hello bla bla";
-//        
-//        if ([snapshot.valueInExportFormat rangeOfString:@","].location == NSNotFound) {
-//            NSLog(@"change detected %@",snapshot.valueInExportFormat);
-//            
-//            UILocalNotification *notification = [[UILocalNotification alloc] init];
-//            notification.fireDate = [[NSDate date] dateByAddingTimeInterval:3];
-//            notification.alertBody = @"New event!";
-//            notification.soundName = UILocalNotificationDefaultSoundName;
-//            notification.category =  @"INVITE_CATEGORY";
-//            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-//            
-//            
-//        }
-//        
-//        //        NSLog(@"%@", snapshot.description);
-//        
-//        
-//        
-//    }];
-//
-//    
-//    completionHandler(UIBackgroundFetchResultNewData);
-//
-//}
-
 
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -223,63 +168,38 @@ NSString *invitations;
     
 
 }
-//
-//- (void)facebookViewControllerDoneWasPressed:(id)sender {
-//    FBFriendPickerViewController *friendPickerController =
-//    (FBFriendPickerViewController*)sender;
-////    NSLog(@"Selected friends: %@", friendPickerController.selection);
-////    NSMutableString *temp;
-////    NSLog(@"lmao: %i friends", friendPickerController.selection.count);
-//    
-//    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
-//    
-//    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
-////        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-//
-//         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
-//        
-//    
-//    }
-//    
-//    //create new event
-//    myRootRef = nil;
-//    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com"];
-//    
-////    [[myRootRef childByAppendingPath:@"lmao"] setValue:name];
-//    
-//    [[[myRootRef childByAppendingPath:@"lmao"] childByAutoId] setValue:name];
-//    
-////    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:@"mykey"
-////                                                    secret:@"mysecret"];
-////    
-////    NSURL *url = [NSURL URLWithString:@"https://example.com/user/1/flights/"];
-////    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
-////                                                                   consumer:consumer
-////                                                                      token:accessToken
-////                                                                      realm:nil
-////                                                          signatureProvider:[[OAPlaintextSignatureProvider alloc] init]];
-////    
-////    OARequestParameter *nameParam = [[OARequestParameter alloc] initWithName:@"title"
-////                                                                       value:@"My Page"];
-////    OARequestParameter *descParam = [[OARequestParameter alloc] initWithName:@"description"
-////                                                                       value:@"My Page Holds Text"];
-////    NSArray *params = [NSArray arrayWithObjects:nameParam, descParam, nil];
-////    [request setParameters:params];
-////    
-////    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
-////    [fetcher fetchDataWithRequest:request
-////                         delegate:self
-////                didFinishSelector:@selector(apiTicket:didFinishWithData:)
-////                  didFailSelector:@selector(apiTicket:didFailWithError:)];
-////    
-////    
-//    
-//    
-//    
-//    
-//    
-//    // Dismiss the friend picker
-//}
+
+- (void)facebookViewControllerDoneWasPressed:(id)sender {
+    FBFriendPickerViewController *friendPickerController =
+    (FBFriendPickerViewController*)sender;
+//    NSLog(@"Selected friends: %@", friendPickerController.selection);
+//    NSMutableString *temp;
+//    NSLog(@"lmao: %i friends", friendPickerController.selection.count);
+    
+    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
+    
+    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
+//        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+
+         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
+        
+    
+    }
+    
+    //create new event
+    myRootRef = nil;
+    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com"];
+    
+//    [[myRootRef childByAppendingPath:@"lmao"] setValue:name];
+    
+    [[[myRootRef childByAppendingPath:@"lmao"] childByAutoId] setValue:name];
+    
+    
+    
+    
+    
+    // Dismiss the friend picker
+}
 
 
 
