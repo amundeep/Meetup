@@ -21,6 +21,7 @@ NSString *invitations;
     NSString *name;
     CLLocation *updatedLocation;
     AppDelegate *appDelegate;
+    FBFriendPickerViewController *friendPickerController;
     
 }
 
@@ -100,10 +101,7 @@ NSString *invitations;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(int)name
-{
-    return name;
-}
+
 
 //user data fetched
 
@@ -116,6 +114,8 @@ NSString *invitations;
     name = user.name;
     appDelegate.superName = user.name;
 //    super.super.super.name = user.name;
+    [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"Name"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
     Firebase *locRef = [[myRootRef childByAppendingPath:name] childByAppendingPath:@"location"];
@@ -197,7 +197,7 @@ NSString *invitations;
     
     if(pickedFriends == false){
         // Initialize the friend picker
-        FBFriendPickerViewController *friendPickerController =
+        friendPickerController =
         [[FBFriendPickerViewController alloc] init];
         
 //        FBViewController *controller = [[FBViewController alloc]init];
@@ -212,9 +212,9 @@ NSString *invitations;
         // Load the friend data
         [friendPickerController loadData];
         // Show the picker modally
-        [friendPickerController presentModallyFromViewController:self animated:YES handler:nil];
-        pickedFriends = true;
-//        
+//        [friendPickerController presentModallyFromViewController:self animated:YES handler:nil];
+//        pickedFriends = true;
+//
 //        NSLog(@"selected: %i friends", friendSelection.count);
 //        for (NSDictionary<FBGraphUser>* friend in friendSelection) {
 //            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
@@ -223,63 +223,63 @@ NSString *invitations;
     
 
 }
-
-- (void)facebookViewControllerDoneWasPressed:(id)sender {
-    FBFriendPickerViewController *friendPickerController =
-    (FBFriendPickerViewController*)sender;
-//    NSLog(@"Selected friends: %@", friendPickerController.selection);
-//    NSMutableString *temp;
-//    NSLog(@"lmao: %i friends", friendPickerController.selection.count);
-    
-    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
-    
-    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
-//        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-
-         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
-        
-    
-    }
-    
-    //create new event
-    myRootRef = nil;
-    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com"];
-    
-//    [[myRootRef childByAppendingPath:@"lmao"] setValue:name];
-    
-    [[[myRootRef childByAppendingPath:@"lmao"] childByAutoId] setValue:name];
-    
-//    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:@"mykey"
-//                                                    secret:@"mysecret"];
+//
+//- (void)facebookViewControllerDoneWasPressed:(id)sender {
+//    FBFriendPickerViewController *friendPickerController =
+//    (FBFriendPickerViewController*)sender;
+////    NSLog(@"Selected friends: %@", friendPickerController.selection);
+////    NSMutableString *temp;
+////    NSLog(@"lmao: %i friends", friendPickerController.selection.count);
 //    
-//    NSURL *url = [NSURL URLWithString:@"https://example.com/user/1/flights/"];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
-//                                                                   consumer:consumer
-//                                                                      token:accessToken
-//                                                                      realm:nil
-//                                                          signatureProvider:[[OAPlaintextSignatureProvider alloc] init]];
+//    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com"];
 //    
-//    OARequestParameter *nameParam = [[OARequestParameter alloc] initWithName:@"title"
-//                                                                       value:@"My Page"];
-//    OARequestParameter *descParam = [[OARequestParameter alloc] initWithName:@"description"
-//                                                                       value:@"My Page Holds Text"];
-//    NSArray *params = [NSArray arrayWithObjects:nameParam, descParam, nil];
-//    [request setParameters:params];
+//    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
+////        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//
+//         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
+//        
 //    
-//    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
-//    [fetcher fetchDataWithRequest:request
-//                         delegate:self
-//                didFinishSelector:@selector(apiTicket:didFinishWithData:)
-//                  didFailSelector:@selector(apiTicket:didFailWithError:)];
+//    }
+//    
+//    //create new event
+//    myRootRef = nil;
+//    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com"];
+//    
+////    [[myRootRef childByAppendingPath:@"lmao"] setValue:name];
+//    
+//    [[[myRootRef childByAppendingPath:@"lmao"] childByAutoId] setValue:name];
+//    
+////    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:@"mykey"
+////                                                    secret:@"mysecret"];
+////    
+////    NSURL *url = [NSURL URLWithString:@"https://example.com/user/1/flights/"];
+////    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
+////                                                                   consumer:consumer
+////                                                                      token:accessToken
+////                                                                      realm:nil
+////                                                          signatureProvider:[[OAPlaintextSignatureProvider alloc] init]];
+////    
+////    OARequestParameter *nameParam = [[OARequestParameter alloc] initWithName:@"title"
+////                                                                       value:@"My Page"];
+////    OARequestParameter *descParam = [[OARequestParameter alloc] initWithName:@"description"
+////                                                                       value:@"My Page Holds Text"];
+////    NSArray *params = [NSArray arrayWithObjects:nameParam, descParam, nil];
+////    [request setParameters:params];
+////    
+////    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+////    [fetcher fetchDataWithRequest:request
+////                         delegate:self
+////                didFinishSelector:@selector(apiTicket:didFinishWithData:)
+////                  didFailSelector:@selector(apiTicket:didFailWithError:)];
+////    
+////    
 //    
 //    
-    
-    
-    
-    
-    
-    // Dismiss the friend picker
-}
+//    
+//    
+//    
+//    // Dismiss the friend picker
+//}
 
 
 

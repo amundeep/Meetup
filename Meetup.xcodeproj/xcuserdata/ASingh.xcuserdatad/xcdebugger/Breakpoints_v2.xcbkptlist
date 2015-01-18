@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meetup/ViewController.m"
-            timestampString = "443206743.359871"
+            timestampString = "443208644.563546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "@interface ViewController()"
             landmarkType = "2">
          </BreakpointContent>
