@@ -19,6 +19,9 @@
 
 @property (nonatomic, assign) id<PlacesViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray *myPlaces;
+@property (strong, nonatomic) NSMutableArray *myVicinities;
+@property (strong, nonatomic) NSMutableArray *myLats;
+@property (strong, nonatomic) NSMutableArray *myLongs;
 @property (strong, nonatomic) IBOutlet UIView *mapHolderView;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;

@@ -51,6 +51,10 @@
 //    self.mainTable.contentInset = inset;
 //    self.mainTable.scrollIndicatorInsets = inset;
     
+    // Remove extra separators
+    self.mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    
 }
 
 
@@ -107,33 +111,38 @@
 //    locNames = [[NSMutableArray alloc] init];
     
     
-    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
-        //        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-        
-        [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
-        
-        
-    }
+//    for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
+//        //        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//        
+//        [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
+//        
+//        
+//    }
     
     //create new event
-    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com/lmao"];
-    
-    Firebase *subRef = [myRootRef childByAutoId];
-    
-    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
-    
-    [[subRef childByAppendingPath:@"name"] setValue:name];
-    
-    NSString *loc = [[NSUserDefaults standardUserDefaults] objectForKey:@"Location"];
-
-    
-    [[subRef childByAppendingPath:@"loc"] setValue:loc];
+//    myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime-events.firebaseio.com/lmao"];
+//    
+//    Firebase *subRef = [myRootRef childByAutoId];
+//    
+//    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+//    
+//    [[subRef childByAppendingPath:@"name"] setValue:name];
+//    
+//    NSString *loc = [[NSUserDefaults standardUserDefaults] objectForKey:@"Location"];
+//
+//    
+//    [[subRef childByAppendingPath:@"loc"] setValue:loc];
     
     myRootRef =[[Firebase alloc] initWithUrl:@"https://downtime.firebaseio.com/"];
     
+    [[NSUserDefaults standardUserDefaults] setObject:friendPickerController.selection forKey:@"FriendsPicked"]; //NSARRAY
     
+    NSLog(@"arr: %@",friendPickerController.selection);
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
         [[myRootRef childByAppendingPath:friend.name] observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            
             NSLog(@"%@", snapshot.value[@"location"]);
 //            invitations = snapshot.value[@"pending invitations"];
             NSString *tempLoc = snapshot.value[@"location"];
@@ -237,7 +246,6 @@
     navBar.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     navBar.navigationBar.barTintColor = [UIColor colorWithRed:0.4 green:0.6 blue:1 alpha:1]; /*#6699ff*/
     
-//    [self presentViewController:placesViewController animated:NO completion:nil];
     [self.navigationController presentViewController:navBar animated:YES completion:nil];
 //    [navBar release];
 //    [placesViewController release];

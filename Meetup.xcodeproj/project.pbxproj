@@ -23,8 +23,12 @@
 		8A1F35791A6A22EF00D4C51D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F35781A6A22EF00D4C51D /* Security.framework */; };
 		8A1F357B1A6A22F700D4C51D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */; };
 		8A1F357D1A6A2AFB00D4C51D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */; };
+		8A27C4FB1A6BE23C009705D3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A27C4FA1A6BE23C009705D3 /* iTunesArtwork@2x.png */; };
+		8A27C5011A6BE76F009705D3 /* DowntimeIconGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A27C5001A6BE76F009705D3 /* DowntimeIconGrey.png */; };
 		8A3A45651A6AC53300F278D1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A45641A6AC53300F278D1 /* libxml2.dylib */; };
 		8A3A45671A6ACAFF00F278D1 /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A45661A6ACAFF00F278D1 /* city.jpg */; };
+		8A52B7FF1A6BAD4900C9C86C /* MeetupBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A52B7FE1A6BAD4900C9C86C /* MeetupBlue.png */; };
+		8A52B8011A6BAE6800C9C86C /* MeetupLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A52B8001A6BAE6800C9C86C /* MeetupLight.png */; };
 		8AC49D3A1A6ADAD80079E243 /* NewEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D391A6ADAD80079E243 /* NewEventController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AC49D671A6B04250079E243 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D3C1A6B04250079E243 /* NSURLRequest+OAuth.m */; };
 		8AC49D681A6B04250079E243 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D401A6B04250079E243 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -48,6 +52,10 @@
 		8AC49D7C1A6B192B0079E243 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D7B1A6B192B0079E243 /* PlacesViewController.m */; };
 		8AC49D811A6B53370079E243 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC49D801A6B53370079E243 /* MapKit.framework */; };
 		8AC49D831A6B608C0079E243 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC49D821A6B608C0079E243 /* NotificationCenter.framework */; };
+		8AC49D891A6B84490079E243 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC49D881A6B84490079E243 /* MessageUI.framework */; };
+		8AC49D8B1A6B87B30079E243 /* PostmatesWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC49D8A1A6B87B30079E243 /* PostmatesWhite.png */; };
+		8AC49D8E1A6B89F30079E243 /* FinalizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC49D8D1A6B89F30079E243 /* FinalizeViewController.m */; };
+		8AC49D901A6B93490079E243 /* PostmatesBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC49D8F1A6B93490079E243 /* PostmatesBlue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +91,12 @@
 		8A1F35781A6A22EF00D4C51D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8A1F357A1A6A22F700D4C51D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8A1F357C1A6A2AFB00D4C51D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8A27C4FA1A6BE23C009705D3 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		8A27C5001A6BE76F009705D3 /* DowntimeIconGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DowntimeIconGrey.png; sourceTree = "<group>"; };
 		8A3A45641A6AC53300F278D1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8A3A45661A6ACAFF00F278D1 /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpg; sourceTree = "<group>"; };
+		8A52B7FE1A6BAD4900C9C86C /* MeetupBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeetupBlue.png; sourceTree = "<group>"; };
+		8A52B8001A6BAE6800C9C86C /* MeetupLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeetupLight.png; sourceTree = "<group>"; };
 		8AC49D381A6ADAD80079E243 /* NewEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEventController.h; sourceTree = "<group>"; };
 		8AC49D391A6ADAD80079E243 /* NewEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEventController.m; sourceTree = "<group>"; };
 		8AC49D3B1A6B04250079E243 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
@@ -132,6 +144,11 @@
 		8AC49D7B1A6B192B0079E243 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
 		8AC49D801A6B53370079E243 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8AC49D821A6B608C0079E243 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		8AC49D881A6B84490079E243 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8AC49D8A1A6B87B30079E243 /* PostmatesWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostmatesWhite.png; sourceTree = "<group>"; };
+		8AC49D8C1A6B89F30079E243 /* FinalizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalizeViewController.h; sourceTree = "<group>"; };
+		8AC49D8D1A6B89F30079E243 /* FinalizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalizeViewController.m; sourceTree = "<group>"; };
+		8AC49D8F1A6B93490079E243 /* PostmatesBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostmatesBlue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC49D891A6B84490079E243 /* MessageUI.framework in Frameworks */,
 				8AC49D831A6B608C0079E243 /* NotificationCenter.framework in Frameworks */,
 				8AC49D811A6B53370079E243 /* MapKit.framework in Frameworks */,
 				8A3A45651A6AC53300F278D1 /* libxml2.dylib in Frameworks */,
@@ -166,6 +184,7 @@
 		8A1F35391A6A0A5100D4C51D = {
 			isa = PBXGroup;
 			children = (
+				8AC49D881A6B84490079E243 /* MessageUI.framework */,
 				8AC49D821A6B608C0079E243 /* NotificationCenter.framework */,
 				8AC49D801A6B53370079E243 /* MapKit.framework */,
 				8A3A45641A6AC53300F278D1 /* libxml2.dylib */,
@@ -180,7 +199,13 @@
 				8A1F35441A6A0A5100D4C51D /* Meetup */,
 				8A1F35611A6A0A5100D4C51D /* MeetupTests */,
 				8A1F35431A6A0A5100D4C51D /* Products */,
+				8A52B8001A6BAE6800C9C86C /* MeetupLight.png */,
+				8A52B7FE1A6BAD4900C9C86C /* MeetupBlue.png */,
+				8A27C5001A6BE76F009705D3 /* DowntimeIconGrey.png */,
 				8A3A45661A6ACAFF00F278D1 /* city.jpg */,
+				8A27C4FA1A6BE23C009705D3 /* iTunesArtwork@2x.png */,
+				8AC49D8F1A6B93490079E243 /* PostmatesBlue.png */,
+				8AC49D8A1A6B87B30079E243 /* PostmatesWhite.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,6 +235,8 @@
 				8AC49D391A6ADAD80079E243 /* NewEventController.m */,
 				8AC49D7A1A6B192B0079E243 /* PlacesViewController.h */,
 				8AC49D7B1A6B192B0079E243 /* PlacesViewController.m */,
+				8AC49D8C1A6B89F30079E243 /* FinalizeViewController.h */,
+				8AC49D8D1A6B89F30079E243 /* FinalizeViewController.m */,
 				8A1F35521A6A0A5100D4C51D /* Main.storyboard */,
 				8A1F35551A6A0A5100D4C51D /* Images.xcassets */,
 				8A1F35571A6A0A5100D4C51D /* LaunchScreen.xib */,
@@ -391,8 +418,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3A45671A6ACAFF00F278D1 /* city.jpg in Resources */,
+				8A52B7FF1A6BAD4900C9C86C /* MeetupBlue.png in Resources */,
+				8AC49D8B1A6B87B30079E243 /* PostmatesWhite.png in Resources */,
 				8A1F35541A6A0A5100D4C51D /* Main.storyboard in Resources */,
+				8A27C4FB1A6BE23C009705D3 /* iTunesArtwork@2x.png in Resources */,
 				8A1F35591A6A0A5100D4C51D /* LaunchScreen.xib in Resources */,
+				8A27C5011A6BE76F009705D3 /* DowntimeIconGrey.png in Resources */,
+				8A52B8011A6BAE6800C9C86C /* MeetupLight.png in Resources */,
+				8AC49D901A6B93490079E243 /* PostmatesBlue.png in Resources */,
 				8A1F35561A6A0A5100D4C51D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +458,7 @@
 				8A1F354E1A6A0A5100D4C51D /* Meetup.xcdatamodeld in Sources */,
 				8AC49D751A6B04250079E243 /* OARequestParameter.m in Sources */,
 				8AC49D6C1A6B04250079E243 /* hmac.c in Sources */,
+				8AC49D8E1A6B89F30079E243 /* FinalizeViewController.m in Sources */,
 				8AC49D771A6B04250079E243 /* OAToken.m in Sources */,
 				8AC49D681A6B04250079E243 /* NSMutableURLRequest+Parameters.m in Sources */,
 				8AC49D761A6B04250079E243 /* OAServiceTicket.m in Sources */,

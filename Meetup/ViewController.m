@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import <Firebase/Firebase.h>
-#import "AppDelegate.h">
+#import "AppDelegate.h"
+#import "NewEventController.h"
 
 NSString *invitations;
 
@@ -135,6 +136,16 @@ NSString *invitations;
     }];
     
     [locationManager startUpdatingLocation];
+   
+    
+    
+    //-----------------------
+    
+    
+    
+    [self performSegueWithIdentifier:@"FBSegue" sender:self];  //COMMENT THIS OUT TO LOG OUT OF FACEBOOK
+
+    
     
 }
 
@@ -181,7 +192,9 @@ NSString *invitations;
     for (NSDictionary<FBGraphUser>* friend in friendPickerController.selection) {
 //        NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
 
-         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
+        [[NSUserDefaults standardUserDefaults] setObject:friendPickerController.selection forKey:@"FriendsPicked"]; //NSARRAY
+//        
+//         [[[myRootRef childByAppendingPath:friend.name] childByAppendingPath:@"pending invitations"] setValue:@"lmao"];
         
     
     }

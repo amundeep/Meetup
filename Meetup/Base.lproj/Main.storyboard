@@ -49,7 +49,7 @@
                                     <rect key="frame" x="151" y="441" width="73" height="34"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="s2g-zU-S6V" kind="show" id="7on-pN-IVa"/>
+                                    <segue destination="s2g-zU-S6V" kind="show" identifier="FBSegue" id="7on-pN-IVa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,7 +71,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="loginView" destination="Dhf-GQ-kjn" id="Oza-2o-oho"/>
@@ -81,19 +81,54 @@
             </objects>
             <point key="canvasLocation" x="316.5" y="268.125"/>
         </scene>
-        <!--New Meetup-->
+        <!--Meetups-->
         <scene sceneID="1jJ-5A-xHv">
             <objects>
-                <tableViewController id="qrA-Om-wN1" customClass="NewEventController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewEventController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qrA-Om-wN1" customClass="NewEventController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aOq-Yj-rpG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Adw-dI-LsS">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DowntimeIconGrey.png" translatesAutoresizingMaskIntoConstraints="NO" id="vYh-Uq-dVB">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                        <rect key="frame" x="56" y="109" width="262" height="262"/>
+                                    </variation>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any Meetups yet, click &quot;+&quot; to create one!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-sF-zYm">
+                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                        <rect key="frame" x="56" y="373" width="262" height="54"/>
+                                    </variation>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="vYh-Uq-dVB"/>
+                                    <exclude reference="u9e-sF-zYm"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular">
+                                <mask key="subviews">
+                                    <include reference="vYh-Uq-dVB"/>
+                                    <include reference="u9e-sF-zYm"/>
+                                </mask>
+                            </variation>
+                        </view>
                         <connections>
                             <outlet property="dataSource" destination="qrA-Om-wN1" id="eNA-CX-jfA"/>
                             <outlet property="delegate" destination="qrA-Om-wN1" id="0Ae-Io-392"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Meetup" id="KJN-zv-e2T">
+                    <navigationItem key="navigationItem" title="Meetups" id="KJN-zv-e2T">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="w3P-q4-zgg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -116,10 +151,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="PlacesViewController" title="Places Near Your Friends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3tg-ja-kE8" customClass="PlacesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oix-b9-7B0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="iHG-bt-33l">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YHr-vF-3K7">
@@ -208,8 +244,153 @@
             </objects>
             <point key="canvasLocation" x="750.5" y="268.125"/>
         </scene>
+        <!--Finalize Meetup-->
+        <scene sceneID="sY2-jF-Cqk">
+            <objects>
+                <viewController storyboardIdentifier="FinalizeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CBv-5e-RLP" customClass="FinalizeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mBP-ZW-4Hq"/>
+                        <viewControllerLayoutGuide type="bottom" id="tqe-dv-JL7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fZA-QQ-vGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXn-QS-lL5">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="257"/>
+                                </variation>
+                            </mapView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwN-lw-7UU">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyD-qU-vlD">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Button" image="PostmatesBlue.png"/>
+                                        <variation key="heightClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="60" y="258" width="255" height="61"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="orderPostmates:" destination="CBv-5e-RLP" eventType="touchUpInside" id="WjS-PI-eKG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Im-98-KVB">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="21" y="25" width="72" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-li-WwF">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Get Directions to Your Location" backgroundImage="MeetupBlue.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="147" width="375" height="89"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="getDirections:" destination="CBv-5e-RLP" eventType="touchUpInside" id="2Ng-8D-zwV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="YMe-FP-Esm">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.41829988499999998" green="0.60820661890000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="101" y="21" width="236" height="118"/>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="pyD-qU-vlD"/>
+                                        <exclude reference="3Im-98-KVB"/>
+                                        <exclude reference="DtE-li-WwF"/>
+                                        <exclude reference="YMe-FP-Esm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="322" width="375" height="345"/>
+                                    <mask key="subviews">
+                                        <include reference="pyD-qU-vlD"/>
+                                        <include reference="3Im-98-KVB"/>
+                                        <include reference="DtE-li-WwF"/>
+                                        <include reference="YMe-FP-Esm"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hXn-QS-lL5"/>
+                                <exclude reference="ZwN-lw-7UU"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="hXn-QS-lL5"/>
+                                <include reference="ZwN-lw-7UU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Finalize Meetup" id="jWS-KY-ioR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Zb6-g6-0yC">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="goBack:" destination="CBv-5e-RLP" id="IrQ-z5-mE7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SZb-8R-y27">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="locButton" destination="YMe-FP-Esm" id="bhj-he-q3p"/>
+                        <outlet property="mapHolderView" destination="fZA-QQ-vGw" id="KO9-VQ-fTK"/>
+                        <outlet property="mapView" destination="hXn-QS-lL5" id="zO0-X6-Aj1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSr-RQ-8KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060.5" y="940.125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="meZ-MY-2RF">
+            <objects>
+                <navigationController id="pQg-72-0qg" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Abi-dp-AQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.40000000000000002" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CBv-5e-RLP" kind="relationship" relationship="rootViewController" id="LSc-Wu-yiz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4EX-bl-c1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577.5" y="940.125"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="DowntimeIconGrey.png" width="1024" height="1024"/>
+        <image name="MeetupBlue.png" width="22" height="16"/>
+        <image name="PostmatesBlue.png" width="474" height="118"/>
         <image name="city.jpg" width="960" height="1546"/>
     </resources>
 </document>
